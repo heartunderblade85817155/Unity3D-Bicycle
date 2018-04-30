@@ -8,14 +8,13 @@
 	SubShader
 	{
 
+		Tags
+		{
+			"Queue" = "Transparent"
+		}
+
 		Pass
 		{
-			Tags 
-			{
-				"RenderType" = "Transparent"
-				"Queue" = "Transparent"
-			}
-
 			Blend SrcAlpha OneMinusSrcAlpha
 
 			CGPROGRAM
