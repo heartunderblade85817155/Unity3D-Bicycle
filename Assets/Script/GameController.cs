@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
     private int RunTimeFlag = 0;
 
     public int GetRunTimeFlag()

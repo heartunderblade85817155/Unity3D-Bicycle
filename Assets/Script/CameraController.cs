@@ -45,6 +45,7 @@ public class CameraController : MonoBehaviour
                     MoveCamera = false;
                     CurrentFlag |= 1;
                     ScreenButton.SetActive(true);
+
                     GameMaster.GetComponent<GameController>().SetRunTimeFlag(CurrentFlag);
                     return;
                 }

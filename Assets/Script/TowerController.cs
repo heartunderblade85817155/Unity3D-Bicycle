@@ -24,6 +24,8 @@ public class TowerController : MonoBehaviour
 
     private GameObject GameMaster;
 
+    private GameObject Logo;
+
     void Start ()
     {
         TowerLod0 = GameObject.Find("TowerLod0");
@@ -33,6 +35,10 @@ public class TowerController : MonoBehaviour
         TowerLod2 = GameObject.Find("TowerLod2");
 
         Sky = GameObject.Find("Sky");
+
+        Logo = GameObject.Find("Logo");
+
+        Logo.SetActive(false);
 
         GameMaster = GameObject.Find("SceneController");
     }
@@ -60,18 +66,22 @@ public class TowerController : MonoBehaviour
                 TowerLod0.GetComponent<SpriteRenderer>().material.SetFloat("_AlphaBlend", ControlProp);
 
             if (TowerLod1)
-                TowerLod1.GetComponent<SpriteRenderer>().material.SetFloat("_AlphaBlend", 1 - ControlProp);
+                TowerLod1.GetComponent<SpriteRenderer>().material.SetFloat("_AlphaBlend", 1 - ControlProp + 0.1f);
         }
         else if ((CurrentFlag>>1 & 1) == 0)
         {
+            if (Logo)
+                Logo.SetActive(true);
+
             ControlProp = Mathf.Exp(-Mathf.Max((Blend2Start - CameraZ) / Mathf.Abs(Blend2End - Blend2Start), 0.0f));
 
-            if (ControlProp < 0.15f)
+            if (ControlProp < 0.12f)
             {
                 if (TowerLod1)
                 {
                     GameObject.Destroy(TowerLod1);
                     GameObject.Destroy(Sky);
+                    GameObject.Destroy(Logo);
                 }
                 return;
             }
