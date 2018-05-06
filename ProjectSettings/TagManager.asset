@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeftScene
   - Tower
+  - furniture
+  - BookMark
   layers:
   - Default
   - TransparentFX
