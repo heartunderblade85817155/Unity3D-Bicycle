@@ -13,7 +13,6 @@ public class PersonSceneController : MonoBehaviour
 	private bool ThreePicture = false;
 
 	private GameObject WholeRoom;
-	private GameObject WholeRoomGround;
 	public float WholeRoomAppearTime = 1.0f;
 	private float WholeRoomAppearTotalTime = 0.0f;
 
@@ -43,8 +42,6 @@ public class PersonSceneController : MonoBehaviour
 		SmallSun = GameObject.Find("SmallSun");
 
 		WholeRoom = GameObject.Find("WholeRoom");
-
-		WholeRoomGround = GameObject.Find("WholeRoomGround");
 
 		WholeRoomAppearTotalTime = 0.0f;
 

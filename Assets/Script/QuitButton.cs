@@ -22,7 +22,7 @@ public class QuitButton : MonoBehaviour
         Over.SetActive(true);
         Down.SetActive(false);
     }
-	
+
     void Start()
     {
         Normal = this.transform.Find("Normal").gameObject;
@@ -47,7 +47,7 @@ public class QuitButton : MonoBehaviour
         Over.SetActive(false);
         Down.SetActive(false);
 
-        this.transform.parent.GetComponent<RedController>().ChangeStage(2);
+        Application.Quit();
     }
 
     void Update()

@@ -21,7 +21,6 @@ public class RemoteController : MonoBehaviour
 	private GameObject RemoteCircle;
 
 	private GameObject Remote1;
-	private GameObject Remote2;
 
 	private GameObject TVWhite;
 	private GameObject TVBlack;
@@ -31,8 +30,6 @@ public class RemoteController : MonoBehaviour
 		MoveRemote = false;
 
 		Remote1 = GameObject.Find("RemoteControl1");
-
-		Remote2 = GameObject.Find("RemoteControl2");
 
 		GameController = GameObject.Find("SceneController");
 

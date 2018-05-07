@@ -47,7 +47,6 @@ public class SetUpButton : MonoBehaviour
         Over.SetActive(false);
         Down.SetActive(false);
 
-        this.transform.parent.GetComponent<RedController>().ChangeStage(2);
     }
 
     void Update()

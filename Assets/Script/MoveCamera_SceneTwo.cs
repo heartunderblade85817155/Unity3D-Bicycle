@@ -10,8 +10,6 @@ public class MoveCamera_SceneTwo : MonoBehaviour
 
 	private bool Moved;
 
-	private GameObject GameMaster;
-
 	private bool TimeOut;
 
 	public void SetTimeOut(bool flag)
@@ -24,8 +22,6 @@ public class MoveCamera_SceneTwo : MonoBehaviour
 		Moved = false;
 
 		PreMousePos = Vector3.zero;
-
-		GameMaster = GameObject.Find("SceneController").gameObject;
 	}
 	
 	void Update ()
