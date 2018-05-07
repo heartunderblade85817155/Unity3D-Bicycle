@@ -2,70 +2,99 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckMouseButton : MonoBehaviour 
+public class CheckMouseButton : MonoBehaviour
 {
 
-	private Collider2D HitCollider = null;
+    private Collider2D HitCollider = null;
 
-	void Start () 
-	{
-		
-	}
-	
-	void Update () 
-	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			RaycastHit2D hit = Physics2D.Raycast(MouseWorldPos, Vector2.zero);
+    private bool TimeOut;
 
-			HitCollider = hit.collider;
+    void Start()
+    {
+        TimeOut = false;
+    }
 
-			if (!HitCollider)
-			{
-				return;
-			}
-			else
-			{
-				Debug.Log(hit.collider.gameObject.name);
+    public void SetTimeOut(bool flag)
+    {
+        TimeOut = flag;
+    }
 
-				if (HitCollider.tag.Equals("furniture"))
-				{
-					
-				}
-				else if (HitCollider.tag.Equals("BookMark"))
-				{
-					if (HitCollider.transform.parent.GetComponent<RedController>())
-					{
-						HitCollider.transform.parent.GetComponent<RedController>().SetButtonStage(true);
-					}
-				}
-			}
-		}
-		if (Input.GetMouseButtonUp(0))
-		{
-			if (!HitCollider)
-			{
-				return;
-			}
-			else
-			{
-				if (HitCollider.tag.Equals("furniture"))
-				{
-					
-				}
-				else if (HitCollider.tag.Equals("BookMark"))
-				{
-					if (HitCollider.transform.parent.GetComponent<RedController>())
-					{
-						HitCollider.transform.parent.GetComponent<RedController>().SetButtonStage(false);
-					}
-				}
-			}
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(MouseWorldPos, Vector2.zero);
 
-			HitCollider = null;
-		}
+            HitCollider = hit.collider;
+
+            if (!HitCollider)
+            {
+                return;
+            }
+            else
+            {
+                Debug.Log(hit.collider.gameObject.name);
+
+                if (HitCollider.tag.Equals("furniture"))
+                {
+                    if (TimeOut)
+                    {
+                        return;
+                    }
+                }
+                else if (HitCollider.tag.Equals("BookMark"))
+                {
+                    if (HitCollider.transform.parent.GetComponent<RedController>())
+                    {
+                        HitCollider.transform.parent.GetComponent<RedController>().SetButtonStage(true);
+                    }
+                }
+                else if (HitCollider.gameObject.name.Equals("StopButton"))
+                {
+                    HitCollider.gameObject.GetComponent<StopButton>().GetMouseDown();
+                }
+                else if (HitCollider.gameObject.name.Equals("PlayButton"))
+                {
+                    HitCollider.gameObject.GetComponent<PlayButton>().GetMouseDown();
+                }
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!HitCollider)
+            {
+                return;
+            }
+            else
+            {
+                if (HitCollider.tag.Equals("furniture"))
+                {
+                    if (TimeOut)
+                    {
+                        return;
+                    }
+                }
+                else if (HitCollider.tag.Equals("BookMark"))
+                {
+                    if (HitCollider.transform.parent.GetComponent<RedController>())
+                    {
+                        HitCollider.transform.parent.GetComponent<RedController>().SetButtonStage(false);
+                    }
+                }
+                else if (HitCollider.gameObject.name.Equals("StopButton"))
+                {
+                    HitCollider.gameObject.GetComponent<StopButton>().GetMouseUp();
+                }
+                else if (HitCollider.gameObject.name.Equals("PlayButton"))
+                {
+                    HitCollider.gameObject.GetComponent<PlayButton>().GetMouseUp();
+                }
+            }
+
+            HitCollider = null;
+        }
 
 
-	}
+    }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Tower
   - furniture
   - BookMark
+  - Button
   layers:
   - Default
   - TransparentFX

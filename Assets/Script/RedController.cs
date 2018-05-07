@@ -19,14 +19,27 @@ public class RedController : MonoBehaviour
 
 	private float StartY;
 
+	public float Stage2To3 = -1.4f;
+	public float Stage2To3Time = 1.0f;
+	private float Stage2To3TotalTime = 0.0f;
+
+	public float Stage4To1 = -1.4f;
+	public float Stage4To1Time = 1.0f;
+	private float Stage4To1TotalTime = 0.0f;
+
+	private GameObject GreenBookMark;
+
 	void Start () 
 	{
 		ButtonDown = false;
+
 		Stage = 0;
 
 		StartY = -10000.0f;
 
 		BookLine = this.transform.Find("Red").gameObject;
+
+		GreenBookMark = this.transform.parent.Find("GreenMenu").gameObject;
 	}
 
 	public void SetButtonStage(bool flag)
@@ -44,6 +57,11 @@ public class RedController : MonoBehaviour
 			BookLine.GetComponent<SpriteRenderer>().color = TmpColor;
 			ButtonDown = true;
 		}
+	}
+
+	public void ChangeStage(int flag)
+	{
+		Stage = flag;
 	}
 	
 	void Update () 
@@ -90,6 +108,51 @@ public class RedController : MonoBehaviour
 				}
 			}
 		}
+
+		if (Stage == 2)
+		{
+			if (StartY.Equals(-10000.0f))
+			{
+				StartY = this.transform.position.y;
+			}
+
+			if (Stage2To3TotalTime < Stage2To3Time)
+			{
+				Stage2To3TotalTime += Time.deltaTime;
+				Vector3 TmpPos = this.transform.position;
+				this.transform.position = new Vector3(TmpPos.x, StartY + Stage2To3 * (Stage2To3TotalTime / Stage2To3Time), TmpPos.z);
+			}
+			else
+			{
+				Stage = 3;
+				StartY = -10000.0f;
+				Stage2To3TotalTime = 0.0f;
+
+				GreenBookMark.GetComponent<GreenController>().ChangeStage(1);
+			}
+		}
+
+		if (Stage == 4)
+		{
+			if (StartY.Equals(-10000.0f))
+			{
+				StartY = this.transform.position.y;
+			}
+
+			if (Stage4To1TotalTime < Stage4To1Time)
+			{
+				Stage4To1TotalTime += Time.deltaTime;
+				Vector3 TmpPos = this.transform.position;
+				this.transform.position = new Vector3(TmpPos.x, StartY + Stage4To1 * (Stage4To1TotalTime / Stage4To1Time), TmpPos.z);
+			}
+			else
+			{
+				Stage = 1;
+				StartY = -10000.0f;
+				Stage4To1TotalTime = 0.0f;
+			}
+		}
+
 		
 	}
 }
