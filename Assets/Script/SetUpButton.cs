@@ -11,8 +11,6 @@ public class SetUpButton : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("In Button");
-
         if (Down.activeInHierarchy)
         {
             return;

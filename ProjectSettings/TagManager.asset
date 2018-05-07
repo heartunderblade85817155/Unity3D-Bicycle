@@ -9,6 +9,8 @@ TagManager:
   - furniture
   - BookMark
   - Button
+  - Collect
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -92,6 +92,10 @@ public class CheckMouseButton : MonoBehaviour
                 {
                     HitCollider.gameObject.GetComponent<PlayButton>().GetMouseUp();
                 }
+				else if (HitCollider.tag.Equals("Collect"))
+				{
+					HitCollider.transform.parent.GetComponent<ItemBarController>().ShowWhichItem(HitCollider.gameObject.name);
+				}
             }
 
             HitCollider = null;

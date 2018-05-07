@@ -15,7 +15,6 @@ public class FurnitureController : MonoBehaviour
     public bool SpecialThing;
 	
 
-
     public void MouseDown()
     {
         if (ScaleTotalTime < ScaleTime)

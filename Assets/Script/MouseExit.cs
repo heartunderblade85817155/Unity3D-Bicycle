@@ -9,8 +9,6 @@ public class MouseExit : MonoBehaviour
 	private GameObject Down;
 	private void OnMouseExit()
 	{
-		Debug.Log("Mouse Exit");
-
 		Normal.SetActive(true);
         Over.SetActive(false);
         Down.SetActive(false);
