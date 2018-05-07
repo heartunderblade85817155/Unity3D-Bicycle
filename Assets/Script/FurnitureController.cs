@@ -13,6 +13,7 @@ public class FurnitureController : MonoBehaviour
     public float TheScale = 0.1f;
 
     public bool SpecialThing;
+	
 
 
     public void MouseDown()
@@ -25,6 +26,7 @@ public class FurnitureController : MonoBehaviour
         }
         else
         {
+			FurnitureAudioSource.Play();
             ScaleTotalTime = ScaleTime;
         }
     }
