@@ -42,6 +42,7 @@ public class CheckMouseButton : MonoBehaviour
                     {
                         return;
                     }
+					HitCollider.gameObject.GetComponent<FurnitureController>().MouseDown();
                 }
                 else if (HitCollider.tag.Equals("BookMark"))
                 {
@@ -74,6 +75,7 @@ public class CheckMouseButton : MonoBehaviour
                     {
                         return;
                     }
+					HitCollider.gameObject.GetComponent<FurnitureController>().MouseUp();
                 }
                 else if (HitCollider.tag.Equals("BookMark"))
                 {
