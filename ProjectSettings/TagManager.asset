@@ -11,6 +11,9 @@ TagManager:
   - Button
   - Collect
   - Item
+  - PhotoFenjing
+  - FenJings
+  - Close
   layers:
   - Default
   - TransparentFX

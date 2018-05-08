@@ -9,9 +9,13 @@ public class CheckMouseButton : MonoBehaviour
 
     private bool TimeOut;
 
+    private bool EnableOrNot;
+
     void Start()
     {
         TimeOut = false;
+
+        EnableOrNot = true;
     }
 
     public void SetTimeOut(bool flag)
@@ -19,8 +23,18 @@ public class CheckMouseButton : MonoBehaviour
         TimeOut = flag;
     }
 
+    public void SetEnableOrNot(bool flag)
+    {
+        EnableOrNot = flag;
+    }
+
     void Update()
     {
+        if (!EnableOrNot)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -8,45 +8,38 @@ public class FurnitureController : MonoBehaviour
     public AudioClip FurnitueAudio;
     private AudioSource FurnitureAudioSource;
 
-    public float ScaleTime = 0.3f;
-    private float ScaleTotalTime = 0.0f;
     public float TheScale = 0.1f;
 
     public bool SpecialThing;
+
+    public string FenJingName;
+
+    private GameObject GameMaster;
 	
 
     public void MouseDown()
     {
-        if (ScaleTotalTime < ScaleTime)
+        float CurrentScale = TheScale;
+        this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
+
+		FurnitureAudioSource.Play();
+
+        if (SpecialThing)
         {
-            ScaleTotalTime += Time.deltaTime;
-            float CurrentScale = 1.0f + TheScale * (ScaleTotalTime / ScaleTime);
-            this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
-        }
-        else
-        {
-			FurnitureAudioSource.Play();
-            ScaleTotalTime = ScaleTime;
+            GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
         }
     }
 
     public void MouseUp()
     {
-        if (ScaleTotalTime > 0.0f)
-        {
-            ScaleTotalTime -= Time.deltaTime;
-            float CurrentScale = 1.0f + TheScale * (ScaleTotalTime / ScaleTime);
-            this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
-        }
-        else
-        {
-            ScaleTotalTime = 0.0f;
-        }
+        float CurrentScale = 1.0f;
+        this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
     }
 
     void Start()
     {
         FurnitureAudioSource = this.GetComponent<AudioSource>();
+        GameMaster = GameObject.Find("SceneController");
     }
 
     void Update()
