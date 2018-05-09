@@ -12,9 +12,13 @@ public class FurnitureController : MonoBehaviour
 
     public bool SpecialThing;
 
-    public string FenJingName;
+    public string SpecialThingName;
+
+    public string FenJingName = null;
 
     private GameObject GameMaster;
+
+    private GameObject RedBookMark;
 	
 
     public void MouseDown()
@@ -23,23 +27,36 @@ public class FurnitureController : MonoBehaviour
         this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
 
 		FurnitureAudioSource.Play();
-
-        if (SpecialThing)
-        {
-            GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
-        }
     }
 
     public void MouseUp()
     {
         float CurrentScale = 1.0f;
         this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
+        
+        if (FenJingName != "")
+        {
+            if (SpecialThing)
+            {
+                string ImportantName = RedBookMark.GetComponent<ItemBarController>().GetSelectItemName();
+                if (ImportantName.Equals(SpecialThingName))
+                {
+                    GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
+                }
+            }
+            else
+            {
+                GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
+            }
+        }
     }
+
 
     void Start()
     {
         FurnitureAudioSource = this.GetComponent<AudioSource>();
         GameMaster = GameObject.Find("SceneController");
+        RedBookMark = GameObject.Find("RedMenu");
     }
 
     void Update()

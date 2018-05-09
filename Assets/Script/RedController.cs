@@ -29,6 +29,8 @@ public class RedController : MonoBehaviour
 
 	private GameObject GreenBookMark;
 
+	private GameObject[] FenJings = new GameObject[8];
+
 	void Start () 
 	{
 		ButtonDown = false;
@@ -63,8 +65,8 @@ public class RedController : MonoBehaviour
 	{
 		Stage = flag;
 	}
-	
-	void Update () 
+
+	private void ChangeStageDynamic()
 	{
 		if (Stage == 0 || Stage == 1)
 		{
@@ -108,6 +110,23 @@ public class RedController : MonoBehaviour
 				}
 			}
 		}
+	}
+	
+	void Update () 
+	{
+		FenJings = GameObject.FindGameObjectsWithTag("FenJings");
+
+        if (FenJings.Length > 0)
+        {
+			if (Stage == 1)
+			{
+				ButtonDown = true;
+				ChangeStageDynamic();
+			}
+            return;
+        } 
+
+		ChangeStageDynamic();
 
 		if (Stage == 2)
 		{

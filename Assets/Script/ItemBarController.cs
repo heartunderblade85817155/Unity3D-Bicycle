@@ -28,17 +28,34 @@ public class ItemBarController : MonoBehaviour
     {
         for (int i = 0; i < ItemList.Count; ++i)
         {
-            if (ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite == null)
+            if (ItemList[i].transform.Find("Item") == null)
             {
-                Sprite ThisItemPicture = Resources.Load(name) as Sprite;
-                ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite = ThisItemPicture;
-            }
+                GameObject ThisItemPicture = Resources.Load(name) as GameObject;
+                GameObject TheItem = Instantiate(ThisItemPicture);
 
+                TheItem.transform.parent = ItemList[i].transform;
+
+                if (name.Equals("jiangpai"))
+                {
+                    TheItem.transform.localPosition = new Vector3(0.3f, 0.0f, 0.0f);
+                }
+                else
+                {
+                    TheItem.transform.localPosition = Vector3.zero;
+                }
+
+                TheItem.name = "Item";
+                break;
+            }
         }
     }
 
     public void DeleteItem()
     {
+        if (!TheSelectItem)
+        {
+            return;
+        }
         bool flag = false;
         for (int i = 0; i < ItemList.Count; ++i)
         {
@@ -46,15 +63,38 @@ public class ItemBarController : MonoBehaviour
             {
                 if (ItemList[i].Equals(TheSelectItem))
                 {
-					flag = true;
-					continue;
+                    flag = true;
+                    GameObject.Destroy(ItemList[i].transform.Find("Item").gameObject);
+                    continue;
                 }
             }
-			else
-			{
-				ItemList[i - 1].transform.Find("Item").GetComponent<SpriteRenderer>().sprite = ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite;
-				ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite = null;
-			}
+            else
+            {
+                if (ItemList[i].transform.Find("Item"))
+                {
+                    ItemList[i].transform.Find("Item").SetParent(ItemList[i - 1].transform, false);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    public void ChangeItemState(string TheName)
+    {
+        for (int i = 0; i < ItemList.Count; ++i)
+        {
+            if (ItemList[i].name.Equals(TheName))
+            {
+                TheSelectItem = ItemList[i];
+
+                if (TheSelectItem.transform.Find("Item"))
+                    TheSelectItem.transform.Find("Item").GetComponent<SpriteRenderer>().sortingOrder = 13;
+
+                break;
+            }
         }
     }
 
@@ -65,6 +105,10 @@ public class ItemBarController : MonoBehaviour
             if (ItemList[i].name.Equals(TheName))
             {
                 TheSelectItem = ItemList[i];
+
+                if (TheSelectItem.transform.Find("Item"))
+                    TheSelectItem.transform.Find("Item").GetComponent<SpriteRenderer>().sortingOrder = 15;
+
                 ItemList[i].transform.GetComponent<ItemController>().SetShowSign(true);
             }
             else
@@ -72,6 +116,19 @@ public class ItemBarController : MonoBehaviour
                 ItemList[i].transform.GetComponent<ItemController>().SetShowSign(false);
             }
         }
+    }
+
+    public string GetSelectItemName()
+    {
+        if (!TheSelectItem)
+        {
+            return "null";
+        }
+        if (!TheSelectItem.transform.Find("Item"))
+        {
+            return "null";
+        }
+        return TheSelectItem.transform.Find("Item").GetComponent<SpriteRenderer>().sprite.name;
     }
 
     void Update()

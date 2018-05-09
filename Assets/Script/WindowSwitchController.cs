@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhotoController : MonoBehaviour
+public class WindowSwitchController : MonoBehaviour
 {
     public float ShowTime = 0.5f;
     private float ShowTotalTime = 0.0f;
@@ -18,6 +18,8 @@ public class PhotoController : MonoBehaviour
     private Collider2D HitCollider;
 
     private List<GameObject> Photos = new List<GameObject>();
+
+	private GameObject DarkGround;
 
     public void SetCurrentStage()
     {
@@ -40,11 +42,13 @@ public class PhotoController : MonoBehaviour
             GameObject Tmp = this.transform.Find(name).gameObject;
             Photos.Add(Tmp);
         }
+
+		DarkGround = this.transform.Find("Dark").gameObject;
+		DarkGround.SetActive(false);
     }
 
     void Update()
     {
-
         if (BeginShow)
         {
             if (ShowTotalTime < ShowTime)
@@ -53,6 +57,24 @@ public class PhotoController : MonoBehaviour
                 Color TmpColor = Photos[ShowNum].GetComponent<SpriteRenderer>().material.color;
                 TmpColor.a = ShowTotalTime / ShowTime;
                 Photos[ShowNum].GetComponent<SpriteRenderer>().material.color = TmpColor;
+
+				if (ShowNum == 4)
+				{
+					DarkGround.SetActive(true);
+					DarkGround.GetComponent<SpriteRenderer>().material.color = TmpColor;
+				}
+
+				if (ShowNum == 7)
+				{
+					TmpColor.a = 1 - ShowTotalTime / ShowTime;
+                	Photos[6].GetComponent<SpriteRenderer>().material.color = TmpColor;
+				}
+
+				if (ShowNum == 8)
+				{
+					TmpColor.a = 1 - ShowTotalTime / ShowTime;
+                	Photos[7].GetComponent<SpriteRenderer>().material.color = TmpColor;
+				}
             }
             else
             {
@@ -63,12 +85,26 @@ public class PhotoController : MonoBehaviour
             return;
         }
 
-        if (ShowNum == -1)
-        {
-            ShowNum++;
-            BeginShow = true;
-            return;
-        }
+		if (ShowNum == -1)
+		{
+			ShowNum++;
+			BeginShow = true;
+			return;
+		}
+
+		if (ShowNum >=2 && ShowNum < 4)
+		{
+			ShowNum++;
+			BeginShow = true;
+			return;
+		}
+
+		if (ShowNum >=6 && ShowNum < 8)
+		{
+			ShowNum++;
+			BeginShow = true;
+			return;
+		}
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -83,9 +119,9 @@ public class PhotoController : MonoBehaviour
             HitCollider = hit.collider;
 
             if (HitCollider.gameObject.tag.Equals("Close"))
-			{
-				HitCollider.gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.0f);
-			}
+            {
+                HitCollider.gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.0f);
+            }
 
         }
 
@@ -111,16 +147,18 @@ public class PhotoController : MonoBehaviour
 
             HitCollider = hit.collider;
 
+			Debug.Log("windowfenjing:   " + HitCollider.gameObject.name);
+
             if (HitCollider.gameObject.tag.Equals("PhotoFenjing"))
             {
-                if (ShowNum == TotalFenJings - 1)
-				    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
+				if (ShowNum == TotalFenJings - 1)
+                	HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
             }
-			else if (HitCollider.gameObject.tag.Equals("Close"))
-			{
+            else if (HitCollider.gameObject.tag.Equals("Close"))
+            {
                 HitCollider.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-				this.gameObject.SetActive(false);
-			}
+                this.gameObject.SetActive(false);
+            }
             else
             {
                 int tmp = 0;

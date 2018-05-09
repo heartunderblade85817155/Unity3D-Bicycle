@@ -27,10 +27,17 @@ public class GameController_SceneTwo : MonoBehaviour
 			if (FenJings[i].name.Equals(name))
 			{
 				FenJings[i].SetActive(true);
-				this.GetComponent<CheckMouseButton>().SetEnableOrNot(false);
 				if (FenJings[i].GetComponent<PhotoController>())
 				{
 					FenJings[i].GetComponent<PhotoController>().SetCurrentStage();
+				}
+				else if (FenJings[i].GetComponent<FlowerController>())
+				{
+					FenJings[i].GetComponent<FlowerController>().SetCurrentStage();
+				}
+				else if (FenJings[i].GetComponent<WindowSwitchController>())
+				{
+					FenJings[i].GetComponent<WindowSwitchController>().SetCurrentStage();
 				}
 				break;
 			}

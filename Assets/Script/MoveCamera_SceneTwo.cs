@@ -12,6 +12,8 @@ public class MoveCamera_SceneTwo : MonoBehaviour
 
 	private bool TimeOut;
 
+	private GameObject[] FenJings = new GameObject[8];
+
 	public void SetTimeOut(bool flag)
     {
         TimeOut = flag;
@@ -30,6 +32,13 @@ public class MoveCamera_SceneTwo : MonoBehaviour
 		{
 			return;
 		}
+
+		FenJings = GameObject.FindGameObjectsWithTag("FenJings");
+		if (FenJings.Length > 0)
+		{
+			return;
+		}
+
 
 		if (Input.GetMouseButton(0))
 		{

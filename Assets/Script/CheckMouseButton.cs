@@ -9,13 +9,11 @@ public class CheckMouseButton : MonoBehaviour
 
     private bool TimeOut;
 
-    private bool EnableOrNot;
+    private GameObject[] FenJings = new GameObject[8];
 
     void Start()
     {
         TimeOut = false;
-
-        EnableOrNot = true;
     }
 
     public void SetTimeOut(bool flag)
@@ -23,14 +21,11 @@ public class CheckMouseButton : MonoBehaviour
         TimeOut = flag;
     }
 
-    public void SetEnableOrNot(bool flag)
-    {
-        EnableOrNot = flag;
-    }
-
     void Update()
     {
-        if (!EnableOrNot)
+        FenJings = GameObject.FindGameObjectsWithTag("FenJings");
+
+        if (FenJings.Length > 0)
         {
             return;
         }
@@ -73,6 +68,10 @@ public class CheckMouseButton : MonoBehaviour
                 {
                     HitCollider.gameObject.GetComponent<PlayButton>().GetMouseDown();
                 }
+                else if (HitCollider.tag.Equals("Collect"))
+				{
+					HitCollider.transform.parent.GetComponent<ItemBarController>().ChangeItemState(HitCollider.gameObject.name);
+				}
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -85,6 +84,7 @@ public class CheckMouseButton : MonoBehaviour
             {
                 if (HitCollider.tag.Equals("furniture"))
                 {
+                    // 处于暂停中不能触发“家具”的事件
                     if (TimeOut)
                     {
                         return;

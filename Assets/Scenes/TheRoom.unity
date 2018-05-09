@@ -386,7 +386,83 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
+--- !u!1 &13680160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 13680161}
+  - component: {fileID: 13680162}
+  m_Layer: 0
+  m_Name: 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &13680161
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13680160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.6, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1567324741}
+  m_Father: {fileID: 478905326}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &13680162
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13680160}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 21300000, guid: 35c224df79e280743aeb719679e7ee5b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.31, y: 5.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &17275007
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +553,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FurnitueAudio: {fileID: 0}
   TheScale: 1.3
-  SpecialThing: 0
-  FenJingName: 
+  SpecialThing: 1
+  SpecialThingName: ui_cheba_
+  FenJingName: WindowSwitchFenJing
 --- !u!60 &17275011
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -948,7 +1025,77 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
+--- !u!1 &68995569 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1426050669195602, guid: 291d6ddeda31f8941b17e92f338312df,
+    type: 2}
+  m_PrefabInternal: {fileID: 769806766}
+--- !u!114 &68995573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 68995569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d280cdf00b50604b94b340a54ddb05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheCollectName: 
+  SelectTime: 1
+  NeedDelete: 0
+--- !u!1001 &78009192
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564665404971576, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166686900243578, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494430688317816, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6e159153c4c969f46a3cfb9cde07d578, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &86008546 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1104703533136276, guid: 111afbfc812d5a64b821f0fbbd45e790,
@@ -965,7 +1112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d280cdf00b50604b94b340a54ddb05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheCollectName: 
+  TheCollectName: hua
+  SelectTime: 1
+  NeedDelete: 0
 --- !u!1 &88183927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1454,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &179847025
 GameObject:
@@ -1552,6 +1702,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &200643016
 GameObject:
@@ -1826,6 +1977,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &220153745
 GameObject:
@@ -2196,6 +2348,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &449391283
 GameObject:
@@ -2271,6 +2424,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &478905325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 478905326}
+  - component: {fileID: 478905327}
+  m_Layer: 0
+  m_Name: MedicineFenJing
+  m_TagString: FenJings
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &478905326
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478905325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1625144887}
+  - {fileID: 13680161}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &478905327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478905325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7683119abe7e8b24b845c52f14cae490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTime: 0.5
+  TotalFenJings: 2
 --- !u!1 &479870079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,6 +2689,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &521833479
 GameObject:
@@ -2740,6 +2938,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &539807345
 GameObject:
@@ -3153,6 +3352,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1001 &579795129
 Prefab:
@@ -3467,7 +3667,8 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
-  FenJingName: 
+  SpecialThingName: ui_yaoshi_
+  FenJingName: MedicineFenJing
 --- !u!1 &615735778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,6 +4032,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &657671417
 GameObject:
@@ -4062,6 +4264,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &725063959
 GameObject:
@@ -4340,6 +4543,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &739108480
 GameObject:
@@ -4447,6 +4651,78 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1001 &769806766
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297539236747900, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287629532081986, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287629532081986, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054628919998186, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212563664453018930, guid: 291d6ddeda31f8941b17e92f338312df,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64c4ac9f0f45f814da0026639c52e706,
+        type: 3}
+    - target: {fileID: 4181958543599462, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181958543599462, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306865929995814, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 291d6ddeda31f8941b17e92f338312df, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &849364213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,6 +4952,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &964771423
 GameObject:
@@ -4907,6 +5184,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &992537506
 GameObject:
@@ -4984,7 +5262,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992537506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1900648006}
@@ -5311,6 +5589,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.3
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1079119801
 GameObject:
@@ -5723,6 +6002,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.2
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1321833814
 GameObject:
@@ -6063,6 +6343,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1001 &1390422253
 Prefab:
@@ -6081,7 +6362,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4700029898141154, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4700029898141154, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6110,6 +6391,36 @@ Prefab:
     - target: {fileID: 1117289597173564, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
       propertyPath: m_Name
       value: Reward
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074157165704142, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855684515950690, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855684515950690, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 212208135554380764, guid: 111afbfc812d5a64b821f0fbbd45e790,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64c4ac9f0f45f814da0026639c52e706,
+        type: 3}
+    - target: {fileID: 4422051597675018, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422051597675018, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145233334818674, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 111afbfc812d5a64b821f0fbbd45e790, type: 2}
@@ -6192,8 +6503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FurnitueAudio: {fileID: 0}
   TheScale: 1.3
-  SpecialThing: 0
-  FenJingName: 
+  SpecialThing: 1
+  SpecialThingName: ui_jiangpai_
+  FenJingName: MagazineFenJing
 --- !u!82 &1493532211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6323,7 +6635,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 92daa5c9b4e65c346806b5f684798e12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6572,7 +6884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
-  SpecialThing: 1
+  SpecialThing: 0
+  SpecialThingName: 
   FenJingName: PhotoFenJing
 --- !u!1 &1555184483
 GameObject:
@@ -6827,7 +7140,151 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
+--- !u!1 &1567324740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1567324741}
+  - component: {fileID: 1567324743}
+  - component: {fileID: 1567324742}
+  - component: {fileID: 1567324744}
+  m_Layer: 0
+  m_Name: prop
+  m_TagString: PhotoFenjing
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567324741
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567324740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.43, y: -0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 13680161}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567324742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567324740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d280cdf00b50604b94b340a54ddb05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheCollectName: yao
+  SelectTime: 1
+  NeedDelete: 1
+--- !u!212 &1567324743
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567324740}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 21
+  m_Sprite: {fileID: 21300000, guid: 2487cd3995f60434b867fc7463c3eac9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.22, y: 1.46}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!60 &1567324744
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567324740}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.22, y: 1.46}
+    newSize: {x: 2.22, y: 1.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.11, y: -0.32999998}
+      - {x: 0.97999996, y: -0.32}
+      - {x: 0.59, y: -0.37}
+      - {x: 0.35999998, y: -0.35999998}
+      - {x: 0.31, y: -0.29999998}
+      - {x: 0.31, y: 0.29999998}
+      - {x: 0.26, y: 0.42}
+      - {x: 0.28, y: 0.62}
+      - {x: 0.21, y: 0.72999996}
+      - {x: -0.42, y: 0.72999996}
+      - {x: -0.45, y: 0.71999997}
+      - {x: -0.5, y: 0.61}
+      - {x: -0.48, y: 0.42}
+      - {x: -0.5, y: 0.32}
+      - {x: -0.5, y: -0.16}
+      - {x: -0.52, y: -0.16}
+      - {x: -0.75, y: -0.31}
+      - {x: -1, y: -0.26999998}
+      - {x: -1.11, y: -0.31}
+      - {x: -1.11, y: -0.38}
+      - {x: -1.04, y: -0.44}
+      - {x: -0.82, y: -0.53999996}
+      - {x: -0.65999997, y: -0.65999997}
+      - {x: -0.53999996, y: -0.71999997}
+      - {x: -0.39999998, y: -0.72999996}
+      - {x: 0.31, y: -0.72999996}
+      - {x: 0.51, y: -0.7}
+      - {x: 0.9, y: -0.51}
+      - {x: 1.11, y: -0.42}
 --- !u!1 &1581794167 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1117289597173564, guid: 111afbfc812d5a64b821f0fbbd45e790,
@@ -6844,7 +7301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d280cdf00b50604b94b340a54ddb05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheCollectName: 
+  TheCollectName: jiangpai
+  SelectTime: 1
+  NeedDelete: 0
 --- !u!1 &1598282619 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1778747940727044, guid: 111afbfc812d5a64b821f0fbbd45e790,
@@ -6862,6 +7321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TheCollectName: 
+  SelectTime: 1
+  NeedDelete: 0
 --- !u!1 &1621463073
 GameObject:
   m_ObjectHideFlags: 0
@@ -7094,8 +7555,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
-  SpecialThing: 0
-  FenJingName: 
+  SpecialThing: 1
+  SpecialThingName: ui_hua_
+  FenJingName: FlowerFenJing
+--- !u!1 &1625144886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1625144887}
+  - component: {fileID: 1625144888}
+  m_Layer: 0
+  m_Name: 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1625144887
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625144886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 3.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 478905326}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1625144888
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625144886}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 21300000, guid: 9ef8087ede6d93c4f844c1763c896d62, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.91, y: 3.61}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &1668973403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7386,6 +7922,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1688023735
 GameObject:
@@ -7859,6 +8396,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1843308610
 GameObject:
@@ -8107,6 +8645,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1900583366
 GameObject:
@@ -8370,6 +8909,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!4 &1900648006 stripped
 Transform:
@@ -8613,6 +9153,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &1979240600
 GameObject:
@@ -8933,6 +9474,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.3
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &2019190123
 GameObject:
@@ -9204,7 +9746,81 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
+--- !u!1001 &2039687672
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982165862680404, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685086543655864, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114873397963206438, guid: 9c48bb0b17f21d64683886ace3a35ffc,
+        type: 2}
+      propertyPath: NeedDelete
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212828812744622298, guid: 9c48bb0b17f21d64683886ace3a35ffc,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64c4ac9f0f45f814da0026639c52e706,
+        type: 3}
+    - target: {fileID: 4775035021351222, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775035021351222, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184795382201840, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776925992241302, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.83
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9c48bb0b17f21d64683886ace3a35ffc, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2066469376
 GameObject:
   m_ObjectHideFlags: 0
@@ -9528,6 +10144,7 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
 --- !u!1 &2125432570
 GameObject:
@@ -9753,4 +10370,5 @@ MonoBehaviour:
   FurnitueAudio: {fileID: 0}
   TheScale: 1.1
   SpecialThing: 0
+  SpecialThingName: 
   FenJingName: 
