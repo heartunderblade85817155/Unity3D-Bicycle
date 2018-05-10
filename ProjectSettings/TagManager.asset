@@ -15,6 +15,7 @@ TagManager:
   - FenJings
   - Close
   - PinTu
+  - MessageClip
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Message
+    uniqueID: 2632244687
     locked: 0

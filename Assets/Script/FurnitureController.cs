@@ -19,6 +19,10 @@ public class FurnitureController : MonoBehaviour
     private GameObject GameMaster;
 
     private GameObject RedBookMark;
+
+    private GameObject Person;
+
+    public string Message;
 	
 
     public void MouseDown()
@@ -43,11 +47,19 @@ public class FurnitureController : MonoBehaviour
                 {
                     GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
                 }
+                else
+                {
+                    Person.GetComponent<MessageController>().SetMessage(Message);
+                }
             }
             else
             {
                 GameMaster.GetComponent<GameController_SceneTwo>().ActiveFenJing(FenJingName);
             }
+        }
+        else
+        {
+            Person.GetComponent<MessageController>().SetMessage(Message);
         }
     }
 
@@ -57,6 +69,8 @@ public class FurnitureController : MonoBehaviour
         FurnitureAudioSource = this.GetComponent<AudioSource>();
         GameMaster = GameObject.Find("SceneController");
         RedBookMark = GameObject.Find("RedMenu");
+
+        Person = GameObject.Find("Person");
     }
 
     void Update()
