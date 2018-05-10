@@ -80,6 +80,8 @@ public class ItemBarController : MonoBehaviour
                 }
             }
         }
+        TheSelectItem = null;
+        ShowWhichItem("");
     }
 
     public void ChangeItemState(string TheName)

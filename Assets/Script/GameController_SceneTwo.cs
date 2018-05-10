@@ -10,9 +10,6 @@ public class GameController_SceneTwo : MonoBehaviour
 
 	private GameObject[] FenJings = new GameObject[8];
 
-	private bool GetJieZhi = false;
-	private bool GetYao = false;
-
 	private GameObject BlackGround;
 
 	public float BlackAppearTime = 1.5f;
@@ -29,23 +26,6 @@ public class GameController_SceneTwo : MonoBehaviour
 		CurrentStage = Stage;
 	}
 
-	public void SetJieZhi()
-	{
-		GetJieZhi = true;
-	}
-
-	public void SetYao()
-	{
-		GetYao = true;
-	}
-
-	public void NextScene()
-	{
-		if (GetJieZhi && GetYao)
-		{
-			SceneManager.LoadScene(2);
-		}
-	}
 
 	public void ActiveFenJing(string name)
 	{
@@ -73,9 +53,6 @@ public class GameController_SceneTwo : MonoBehaviour
 
 	void Start () 
 	{
-		GetYao = false;
-
-		GetJieZhi = false;
 
 		CurrentStage = 0;
 

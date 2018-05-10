@@ -129,16 +129,11 @@ public class PhotoController : MonoBehaviour
             {
                 if (ShowNum == TotalFenJings - 1)
 				    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
-                if (HitCollider.gameObject.name.Equals("Medicine"))
-                {
-                    GameMaster.GetComponent<GameController_SceneTwo>().SetYao();
-                }
             }
 			else if (HitCollider.gameObject.tag.Equals("Close"))
 			{
                 HitCollider.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 				this.gameObject.SetActive(false);
-                GameMaster.GetComponent<GameController_SceneTwo>().NextScene();
 			}
             else
             {

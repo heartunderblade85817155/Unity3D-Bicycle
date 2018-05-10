@@ -346,7 +346,6 @@ public class FlowerController : MonoBehaviour
 
                 if (HitCollider.gameObject.tag.Equals("PhotoFenjing"))
                 {
-                    GameMaster.GetComponent<GameController_SceneTwo>().SetJieZhi();
                     HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
                 }
                 else if (HitCollider.gameObject.tag.Equals("Close"))

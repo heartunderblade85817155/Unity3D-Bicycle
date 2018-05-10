@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FurnitureController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class FurnitureController : MonoBehaviour
     private AudioSource FurnitureAudioSource;
 
     public float TheScale = 0.1f;
+    public float OriginScale = 1.0f;
 
     public bool SpecialThing;
 
@@ -35,8 +37,7 @@ public class FurnitureController : MonoBehaviour
 
     public void MouseUp()
     {
-        float CurrentScale = 1.0f;
-        this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
+        this.transform.localScale = new Vector3(OriginScale, OriginScale, 1.0f);
         
         if (FenJingName != "")
         {
@@ -59,6 +60,14 @@ public class FurnitureController : MonoBehaviour
         }
         else
         {
+            // 药 + 人 = 场景2
+            if (SpecialThing)
+            {
+                string ImportantName = RedBookMark.GetComponent<ItemBarController>().GetSelectItemName();
+
+                if (ImportantName.Equals(SpecialThingName))
+                    SceneManager.LoadScene(2);
+            }
             Person.GetComponent<MessageController>().SetMessage(Message);
         }
     }
