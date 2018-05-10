@@ -22,11 +22,27 @@ public class PhotoImportant : MonoBehaviour
         Select = true;
 
         InitPos = this.transform.position;
+
+        if (TheCollectName != "")
+        {
+            RedBookMark.GetComponent<ItemBarController>().AddItem(TheCollectName);
+            if (NeedDelete)
+                RedBookMark.GetComponent<ItemBarController>().DeleteItem();
+        }
+    }
+
+    public void SetAlpha(float alpha)
+    {
+        Color TmpColor = this.GetComponent<SpriteRenderer>().material.color;
+        TmpColor.a = alpha;
+        this.GetComponent<SpriteRenderer>().material.color = TmpColor;
     }
 
     void Start()
     {
         RedBookMark = GameObject.Find("RedMenu");
+
+        SetAlpha(0.0f);
     }
 
     void Update()
@@ -42,14 +58,8 @@ public class PhotoImportant : MonoBehaviour
             {
                 SelectTotalTime = 0.0f;
                 Select = false;
-				RedBookMark.GetComponent<ItemBarController>().AddItem(TheCollectName);
-
-                if (NeedDelete)
-                    RedBookMark.GetComponent<ItemBarController>().DeleteItem();
             }
         }
-        Color TmpColor = this.GetComponent<SpriteRenderer>().material.color;
-        TmpColor.a = this.transform.parent.GetComponent<SpriteRenderer>().material.color.a;
-        this.GetComponent<SpriteRenderer>().material.color = TmpColor;
+        SetAlpha(this.transform.parent.GetComponent<SpriteRenderer>().material.color.a);
     }
 }

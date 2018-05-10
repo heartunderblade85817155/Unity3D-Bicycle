@@ -19,15 +19,28 @@ public class PhotoController : MonoBehaviour
 
     private List<GameObject> Photos = new List<GameObject>();
 
+    private GameObject GameMaster;
+
     public void SetCurrentStage()
     {
         CurrentStage = 0;
+
+        ShowNum = -1;
+
+        if (Photos.Count == 0)
+            Start();
 
         for (int i = 0; i < Photos.Count; ++i)
         {
             Color TmpColor = Photos[i].GetComponent<SpriteRenderer>().material.color;
             TmpColor.a = 0.0f;
             Photos[i].GetComponent<SpriteRenderer>().material.color = TmpColor;
+
+            foreach (Transform Child in Photos[i].transform)
+            {
+                if (Child.GetComponent<PhotoImportant>())
+                    Child.GetComponent<PhotoImportant>().SetAlpha(0);
+            }
         }
     }
 
@@ -40,6 +53,7 @@ public class PhotoController : MonoBehaviour
             GameObject Tmp = this.transform.Find(name).gameObject;
             Photos.Add(Tmp);
         }
+        GameMaster = GameObject.Find("SceneController");
     }
 
     void Update()
@@ -115,11 +129,16 @@ public class PhotoController : MonoBehaviour
             {
                 if (ShowNum == TotalFenJings - 1)
 				    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
+                if (HitCollider.gameObject.name.Equals("Medicine"))
+                {
+                    GameMaster.GetComponent<GameController_SceneTwo>().SetYao();
+                }
             }
 			else if (HitCollider.gameObject.tag.Equals("Close"))
 			{
                 HitCollider.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 				this.gameObject.SetActive(false);
+                GameMaster.GetComponent<GameController_SceneTwo>().NextScene();
 			}
             else
             {

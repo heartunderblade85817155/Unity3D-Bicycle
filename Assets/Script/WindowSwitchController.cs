@@ -25,11 +25,22 @@ public class WindowSwitchController : MonoBehaviour
     {
         CurrentStage = 0;
 
+        ShowNum = -1;
+        
+        if (Photos.Count == 0)
+            Start();
+
         for (int i = 0; i < Photos.Count; ++i)
         {
             Color TmpColor = Photos[i].GetComponent<SpriteRenderer>().material.color;
             TmpColor.a = 0.0f;
             Photos[i].GetComponent<SpriteRenderer>().material.color = TmpColor;
+
+            foreach (Transform Child in Photos[i].transform)
+            {
+                if (Child.GetComponent<PhotoImportant>())
+                    Child.GetComponent<PhotoImportant>().SetAlpha(0);
+            }
         }
     }
 

@@ -50,6 +50,8 @@ public class FlowerController : MonoBehaviour
 
     private GameObject CloseButton;
 
+    private GameObject GameMaster;
+
     private void SetAlpha(float alpha)
     {
         Color TmpColor = ResultBigOne.GetComponent<SpriteRenderer>().material.color;
@@ -80,6 +82,8 @@ public class FlowerController : MonoBehaviour
 
     public void SetCurrentStage()
     {
+        Start();
+        
         StartY = -100.0f;
 
         ClickFlag = false;
@@ -143,6 +147,8 @@ public class FlowerController : MonoBehaviour
 
         CloseButton = this.transform.Find("UI_close").gameObject;
         CloseButton.SetActive(false);
+
+        GameMaster = GameObject.Find("SceneController");
     }
 
     void Update()
@@ -340,6 +346,7 @@ public class FlowerController : MonoBehaviour
 
                 if (HitCollider.gameObject.tag.Equals("PhotoFenjing"))
                 {
+                    GameMaster.GetComponent<GameController_SceneTwo>().SetJieZhi();
                     HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
                 }
                 else if (HitCollider.gameObject.tag.Equals("Close"))

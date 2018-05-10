@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersonSceneController : MonoBehaviour 
 {
@@ -215,6 +216,7 @@ public class PersonSceneController : MonoBehaviour
                 Color Tmp = BlackGround.GetComponent<SpriteRenderer>().material.color;
                 Tmp.a = 1.0f;
                 BlackGround.GetComponent<SpriteRenderer>().material.color = Tmp;
+				SceneManager.LoadScene(1);
             }
         }
 
