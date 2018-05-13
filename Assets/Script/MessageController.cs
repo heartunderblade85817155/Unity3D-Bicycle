@@ -43,7 +43,7 @@ public class MessageController : MonoBehaviour
     void Start()
     {
         CurrentStage = 0;
-        MessageBox = this.transform.Find("MessageBox").gameObject;
+        MessageBox = GameObject.Find("MessageBox");
 
         MessageClips = GameObject.FindGameObjectsWithTag("MessageClip");
 
