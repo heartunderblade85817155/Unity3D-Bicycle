@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour
     public float StopTime = 3.0f;           //玩家没有任何操作的持续时间
     private GameObject MoveMouseTitle;
 
+    public AudioClip TVAudioClip;
 
     void Start ()
     {
@@ -83,6 +84,7 @@ public class CameraController : MonoBehaviour
                         GameMaster.GetComponent<GameController>().SetRunTimeFlag(CurrentFlag);
                         return;
                     }
+                    GameMaster.GetComponent<GameController>().PlayLoopAudio(TVAudioClip);
                     this.transform.position = CameraCurrentPosition - CameraSpeed3 * Time.deltaTime * SpeedScale3;
                 }
                 else
@@ -174,6 +176,10 @@ public class CameraController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 MoveCamera = true;
+                if ( GameMaster.GetComponent<GameController>().GetRunTimeFlag() < 0)
+                {
+                    GameMaster.GetComponent<GameController>().PlayBgm();
+                }
             }
         }
 	}

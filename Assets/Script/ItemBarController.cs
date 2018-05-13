@@ -11,8 +11,14 @@ public class ItemBarController : MonoBehaviour
 
     private GameObject TheSelectItem;
 
+    public Dictionary<string, AudioClip> AudioForName;
+
+    private GameObject GameMaster;
+
     void Start()
     {
+        GameMaster = GameObject.Find("SceneController");
+
         ItemBars = GameObject.FindGameObjectsWithTag("Collect");
 
         int len = ItemBars.Length;
@@ -108,8 +114,13 @@ public class ItemBarController : MonoBehaviour
             {
                 TheSelectItem = ItemList[i];
 
+
+
                 if (TheSelectItem.transform.Find("Item"))
+                {
                     TheSelectItem.transform.Find("Item").GetComponent<SpriteRenderer>().sortingOrder = 15;
+                    TheSelectItem.transform.Find("Item").GetComponent<AudioSource>().Play();
+                }
 
                 ItemList[i].transform.GetComponent<ItemController>().SetShowSign(true);
             }
@@ -131,6 +142,22 @@ public class ItemBarController : MonoBehaviour
             return "null";
         }
         return TheSelectItem.transform.Find("Item").GetComponent<SpriteRenderer>().sprite.name;
+    }
+
+    public bool CheckGetTheItem(string TheName)
+    {
+        for (int i = 0; i < ItemList.Count; ++i)
+        {
+            if (ItemList[i].transform.Find("Item") == null)
+            {
+                return false;
+            }
+            else if (ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite.name.Equals(TheName))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void Update()

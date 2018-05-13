@@ -15,6 +15,10 @@ public class GameController_SceneTwo : MonoBehaviour
 	public float BlackAppearTime = 1.5f;
 	private float BlackAppearTotalTime = 0.0f;
 
+	public float SoundAppearTime = 0.1f;
+	private float SoundAppearTotalTime = 0.0f;
+	private bool CanPlayAudio = true;
+
 
 	public uint GetCurrentStage()
 	{
@@ -26,6 +30,29 @@ public class GameController_SceneTwo : MonoBehaviour
 		CurrentStage = Stage;
 	}
 
+	public void PlayAudio(AudioClip Audio)
+	{
+		if (!CanPlayAudio)
+		{
+			return;
+		}
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().clip = Audio;
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().loop = false;
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().Play();
+		CanPlayAudio = false;
+	}
+
+	public void PlayLoopAudio(AudioClip LoopAudio)
+	{
+		if (!CanPlayAudio)
+		{
+			return;
+		}
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().clip = LoopAudio;
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().loop = true;;
+		this.transform.Find("AudioPlayer").GetComponent<AudioSource>().Play();
+		CanPlayAudio = false;
+	}
 
 	public void ActiveFenJing(string name)
 	{
@@ -63,7 +90,7 @@ public class GameController_SceneTwo : MonoBehaviour
 			FenJings[i].SetActive(false);
 		}
 
-		BlackGround = GameObject.Find("black");
+		BlackGround = GameObject.Find("BlackBG");
 
 		BlackAppearTotalTime = 0.0f;
 	}
@@ -82,6 +109,19 @@ public class GameController_SceneTwo : MonoBehaviour
 			else
 			{
 				BlackGround.SetActive(false);
+			}
+		}
+
+		if (!CanPlayAudio)
+		{
+			if (SoundAppearTotalTime < SoundAppearTime)
+			{
+				SoundAppearTotalTime += Time.deltaTime;
+			}
+			else
+			{
+				CanPlayAudio = true;
+				SoundAppearTotalTime = 0.0f;
 			}
 		}
 	}

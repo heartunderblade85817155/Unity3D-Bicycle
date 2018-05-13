@@ -19,14 +19,16 @@ public class WindowSwitchController : MonoBehaviour
 
     private List<GameObject> Photos = new List<GameObject>();
 
-	private GameObject DarkGround;
+    private GameObject DarkGround;
+
+    public List<AudioClip> FenJingAudio;
 
     public void SetCurrentStage()
     {
         CurrentStage = 0;
 
         ShowNum = -1;
-        
+
         if (Photos.Count == 0)
             Start();
 
@@ -54,8 +56,17 @@ public class WindowSwitchController : MonoBehaviour
             Photos.Add(Tmp);
         }
 
-		DarkGround = this.transform.Find("Dark").gameObject;
-		DarkGround.SetActive(false);
+        DarkGround = this.transform.Find("Dark").gameObject;
+        DarkGround.SetActive(false);
+    }
+
+    private void PlayTheAudio()
+    {
+        if (FenJingAudio[ShowNum])
+        {
+            this.GetComponent<AudioSource>().clip = FenJingAudio[ShowNum];
+            this.GetComponent<AudioSource>().Play();
+        }
     }
 
     void Update()
@@ -69,23 +80,23 @@ public class WindowSwitchController : MonoBehaviour
                 TmpColor.a = ShowTotalTime / ShowTime;
                 Photos[ShowNum].GetComponent<SpriteRenderer>().material.color = TmpColor;
 
-				if (ShowNum == 4)
-				{
-					DarkGround.SetActive(true);
-					DarkGround.GetComponent<SpriteRenderer>().material.color = TmpColor;
-				}
+                if (ShowNum == 4)
+                {
+                    DarkGround.SetActive(true);
+                    DarkGround.GetComponent<SpriteRenderer>().material.color = TmpColor;
+                }
 
-				if (ShowNum == 7)
-				{
-					TmpColor.a = 1 - ShowTotalTime / ShowTime;
-                	Photos[6].GetComponent<SpriteRenderer>().material.color = TmpColor;
-				}
+                if (ShowNum == 7)
+                {
+                    TmpColor.a = 1 - ShowTotalTime / ShowTime;
+                    Photos[6].GetComponent<SpriteRenderer>().material.color = TmpColor;
+                }
 
-				if (ShowNum == 8)
-				{
-					TmpColor.a = 1 - ShowTotalTime / ShowTime;
-                	Photos[7].GetComponent<SpriteRenderer>().material.color = TmpColor;
-				}
+                if (ShowNum == 8)
+                {
+                    TmpColor.a = 1 - ShowTotalTime / ShowTime;
+                    Photos[7].GetComponent<SpriteRenderer>().material.color = TmpColor;
+                }
             }
             else
             {
@@ -96,26 +107,30 @@ public class WindowSwitchController : MonoBehaviour
             return;
         }
 
-		if (ShowNum == -1)
-		{
-			ShowNum++;
-			BeginShow = true;
-			return;
-		}
+        if (ShowNum == -1)
+        {
+            ShowNum++;
+            PlayTheAudio();
+            BeginShow = true;
+            return;
+        }
 
-		if (ShowNum >=2 && ShowNum < 4)
-		{
-			ShowNum++;
-			BeginShow = true;
-			return;
-		}
+        if (ShowNum >= 2 && ShowNum < 4)
+        {
 
-		if (ShowNum >=6 && ShowNum < 8)
-		{
-			ShowNum++;
-			BeginShow = true;
-			return;
-		}
+            ShowNum++;
+            PlayTheAudio();
+            BeginShow = true;
+            return;
+        }
+
+        if (ShowNum >= 6 && ShowNum < 8)
+        {
+            ShowNum++;
+            PlayTheAudio();
+            BeginShow = true;
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -151,6 +166,7 @@ public class WindowSwitchController : MonoBehaviour
                 if (tmp < TotalFenJings)
                 {
                     ShowNum = tmp;
+                    PlayTheAudio();
                     BeginShow = true;
                 }
                 return;
@@ -158,12 +174,12 @@ public class WindowSwitchController : MonoBehaviour
 
             HitCollider = hit.collider;
 
-			Debug.Log("windowfenjing:   " + HitCollider.gameObject.name);
+            Debug.Log("windowfenjing:   " + HitCollider.gameObject.name);
 
             if (HitCollider.gameObject.tag.Equals("PhotoFenjing"))
             {
-				if (ShowNum == TotalFenJings - 1)
-                	HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
+                if (ShowNum == TotalFenJings - 1)
+                    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
             }
             else if (HitCollider.gameObject.tag.Equals("Close"))
             {
@@ -180,6 +196,7 @@ public class WindowSwitchController : MonoBehaviour
                 if (tmp < TotalFenJings)
                 {
                     ShowNum = tmp;
+                    PlayTheAudio();
                     BeginShow = true;
                 }
             }

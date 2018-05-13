@@ -16,6 +16,7 @@ TagManager:
   - Close
   - PinTu
   - MessageClip
+  - TheSelectItem
   layers:
   - Default
   - TransparentFX

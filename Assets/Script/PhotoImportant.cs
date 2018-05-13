@@ -17,6 +17,10 @@ public class PhotoImportant : MonoBehaviour
 
     public bool NeedDelete = false;
 
+    public List<AudioClip> Audios = new List<AudioClip>();
+
+    private GameObject GameMaster;
+
     public void GetCollect()
     {
         Select = true;
@@ -25,6 +29,17 @@ public class PhotoImportant : MonoBehaviour
 
         if (TheCollectName != "")
         {
+            int len = Audios.Count;
+            if (len > 0)
+            {
+                len = Mathf.RoundToInt(Random.Range(0, len - 1));
+                if (Audios[len] != null)
+                {
+                     this.GetComponent<AudioSource>().clip = Audios[len];
+                    this.GetComponent<AudioSource>().Play();
+                }
+            }
+
             RedBookMark.GetComponent<ItemBarController>().AddItem(TheCollectName);
             if (NeedDelete)
                 RedBookMark.GetComponent<ItemBarController>().DeleteItem();
@@ -43,6 +58,8 @@ public class PhotoImportant : MonoBehaviour
         RedBookMark = GameObject.Find("RedMenu");
 
         SetAlpha(0.0f);
+
+        GameMaster = GameObject.Find("GameMaster");
     }
 
     void Update()

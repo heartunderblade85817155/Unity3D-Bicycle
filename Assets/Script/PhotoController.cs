@@ -21,6 +21,9 @@ public class PhotoController : MonoBehaviour
 
     private GameObject GameMaster;
 
+    public List<AudioClip> FenJingAudio;
+
+
     public void SetCurrentStage()
     {
         CurrentStage = 0;
@@ -54,6 +57,7 @@ public class PhotoController : MonoBehaviour
             Photos.Add(Tmp);
         }
         GameMaster = GameObject.Find("SceneController");
+
     }
 
     void Update()
@@ -80,6 +84,12 @@ public class PhotoController : MonoBehaviour
         if (ShowNum == -1)
         {
             ShowNum++;
+
+            //播放分镜声音
+            if (FenJingAudio[ShowNum])
+            {
+                GameMaster.GetComponent<GameController_SceneTwo>().PlayAudio(FenJingAudio[ShowNum]);
+            }
             BeginShow = true;
             return;
         }
@@ -97,9 +107,9 @@ public class PhotoController : MonoBehaviour
             HitCollider = hit.collider;
 
             if (HitCollider.gameObject.tag.Equals("Close"))
-			{
-				HitCollider.gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.0f);
-			}
+            {
+                HitCollider.gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.0f);
+            }
 
         }
 
@@ -118,6 +128,13 @@ public class PhotoController : MonoBehaviour
                 if (tmp < TotalFenJings)
                 {
                     ShowNum = tmp;
+
+                    //播放分镜声音
+                    if (FenJingAudio[ShowNum])
+                    {
+                        GameMaster.GetComponent<GameController_SceneTwo>().PlayAudio(FenJingAudio[ShowNum]);
+                    }
+
                     BeginShow = true;
                 }
                 return;
@@ -128,13 +145,13 @@ public class PhotoController : MonoBehaviour
             if (HitCollider.gameObject.tag.Equals("PhotoFenjing"))
             {
                 if (ShowNum == TotalFenJings - 1)
-				    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
+                    HitCollider.gameObject.GetComponent<PhotoImportant>().GetCollect();
             }
-			else if (HitCollider.gameObject.tag.Equals("Close"))
-			{
+            else if (HitCollider.gameObject.tag.Equals("Close"))
+            {
                 HitCollider.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-				this.gameObject.SetActive(false);
-			}
+                this.gameObject.SetActive(false);
+            }
             else
             {
                 int tmp = 0;
@@ -145,6 +162,13 @@ public class PhotoController : MonoBehaviour
                 if (tmp < TotalFenJings)
                 {
                     ShowNum = tmp;
+
+                    //播放分镜声音
+                    if (FenJingAudio[ShowNum])
+                    {
+                        GameMaster.GetComponent<GameController_SceneTwo>().PlayAudio(FenJingAudio[ShowNum]);
+                    }
+
                     BeginShow = true;
                 }
             }

@@ -25,6 +25,8 @@ public class RemoteController : MonoBehaviour
 	private GameObject TVWhite;
 	private GameObject TVBlack;
 
+	public AudioClip RemoteAudio;
+
 	void Start () 
 	{
 		MoveRemote = false;
@@ -103,6 +105,8 @@ public class RemoteController : MonoBehaviour
 							Remote1.SetActive(false);
 							TVWhite.SetActive(true);
 							TVBlack.SetActive(true);
+
+							GameController.GetComponent<GameController>().PlayAudio(RemoteAudio);
 
 							GameController.GetComponent<GameController>().SetRunTimeFlag(CurrentFlag);
 							return;

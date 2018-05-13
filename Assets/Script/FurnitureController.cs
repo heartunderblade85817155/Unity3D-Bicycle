@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FurnitureController : MonoBehaviour
 {
-
-    public AudioClip FurnitueAudio;
-    private AudioSource FurnitureAudioSource;
 
     public float TheScale = 0.1f;
     public float OriginScale = 1.0f;
@@ -25,20 +23,44 @@ public class FurnitureController : MonoBehaviour
     private GameObject Person;
 
     public string Message;
-	
+
+    public List<AudioClip> NormalAudios;
+
+    public AudioClip SpecialAudio;
+
+    public float BlackAppearTime = 0.5f;
+    private float BlackAppearTotalTime = 0.0f;
+    private GameObject TheBlackGround;
+
+    private bool TheFinal = false;
+    private bool NextIs2 = false;
+
 
     public void MouseDown()
     {
         float CurrentScale = TheScale;
         this.transform.localScale = new Vector3(CurrentScale, CurrentScale, 1.0f);
 
-		FurnitureAudioSource.Play();
+        int len = NormalAudios.Count;
+
+        if (RedBookMark.GetComponent<ItemBarController>().CheckGetTheItem(SpecialThingName))
+        {
+            GameMaster.GetComponent<GameController_SceneTwo>().PlayAudio(SpecialAudio);
+        }
+        else
+        {
+            if (len > 0)
+            {
+                len = Mathf.RoundToInt(Random.Range(0, len - 1));
+                GameMaster.GetComponent<GameController_SceneTwo>().PlayAudio(NormalAudios[len]);
+            }
+        }
     }
 
     public void MouseUp()
     {
         this.transform.localScale = new Vector3(OriginScale, OriginScale, 1.0f);
-        
+
         if (FenJingName != "")
         {
             if (SpecialThing)
@@ -66,7 +88,21 @@ public class FurnitureController : MonoBehaviour
                 string ImportantName = RedBookMark.GetComponent<ItemBarController>().GetSelectItemName();
 
                 if (ImportantName.Equals(SpecialThingName))
-                    SceneManager.LoadScene(2);
+                {
+                    if (!TheBlackGround.activeInHierarchy)
+                    {
+                        TheBlackGround.SetActive(true);
+                        TheFinal = true;
+                    }
+                    if (!RedBookMark.GetComponent<ItemBarController>().CheckGetTheItem("jiezhi"))
+                    {
+                        NextIs2 = false;
+                    }
+                    else
+                    {
+                        NextIs2 = true;
+                    }
+                }
             }
             Person.GetComponent<MessageController>().SetMessage(Message);
         }
@@ -75,15 +111,40 @@ public class FurnitureController : MonoBehaviour
 
     void Start()
     {
-        FurnitureAudioSource = this.GetComponent<AudioSource>();
         GameMaster = GameObject.Find("SceneController");
         RedBookMark = GameObject.Find("RedMenu");
 
         Person = GameObject.Find("Person");
+
+        TheBlackGround = GameObject.Find("BlackBG");
+        TheBlackGround.SetActive(false);
     }
 
     void Update()
     {
+        if (TheFinal)
+        {
+            if (BlackAppearTotalTime < BlackAppearTime)
+            {
+                BlackAppearTotalTime += Time.deltaTime;
+                Color TmpColor = TheBlackGround.GetComponent<SpriteRenderer>().color;
+                TmpColor.a = BlackAppearTotalTime / BlackAppearTime;
+                TheBlackGround.GetComponent<SpriteRenderer>().color = TmpColor;
 
+                if (!NextIs2)
+                    GameObject.Find("FinalText").GetComponent<TextMeshPro>().color = TmpColor;
+            }
+            else
+            {
+                if (NextIs2)
+                {
+                     SceneManager.LoadScene(2);
+                }
+                else
+                {
+                    SceneManager.LoadScene(0);
+                }
+            }
+        }
     }
 }

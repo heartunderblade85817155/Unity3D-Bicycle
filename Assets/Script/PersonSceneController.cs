@@ -36,6 +36,8 @@ public class PersonSceneController : MonoBehaviour
     public float BecomeBlack = 2.0f;
     private float BecomeBlackTotal = 0.0f;
 
+	public AudioClip YawingAudio;
+
 	void Start () 
 	{
 		GameMaster = GameObject.Find("SceneController");
@@ -85,6 +87,7 @@ public class PersonSceneController : MonoBehaviour
 
 		if ((CurrentFlag>>7 & 1) == 0 && (CurrentFlag>>6 & 1) == 1)
 		{
+			GameMaster.GetComponent<GameController>().PlayAudio(YawingAudio);
 			if (SmallSunAppearTotalTime <= SmallSunAppearTime)
 			{
 				Color Tmp = SmallSun.GetComponent<SpriteRenderer>().material.color;
