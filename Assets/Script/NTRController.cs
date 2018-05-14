@@ -226,7 +226,7 @@ public class NTRController : MonoBehaviour
 
                     for (int i = 0; i < CheckPoints.Count; ++i)
                     {
-                        if ((WorldCreatePos - CheckPoints[i]).magnitude < 0.8f)
+                        if ((WorldCreatePos - CheckPoints[i]).magnitude < 0.6f)
                         {
                             CheckCover[i] = true;
                         }
