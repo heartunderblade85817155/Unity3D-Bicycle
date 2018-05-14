@@ -19,6 +19,18 @@ public class GameController_SceneTwo : MonoBehaviour
 	private float SoundAppearTotalTime = 0.0f;
 	private bool CanPlayAudio = true;
 
+	private bool GoFinal;
+
+	public GameObject GetBlackBG()
+	{
+		return BlackGround;
+	}
+
+	public void GoNext()
+	{
+		GoFinal = true;
+	}
+
 
 	public uint GetCurrentStage()
 	{
@@ -73,6 +85,14 @@ public class GameController_SceneTwo : MonoBehaviour
 				{
 					FenJings[i].GetComponent<WindowSwitchController>().SetCurrentStage();
 				}
+				else if (FenJings[i].GetComponent<MailController>())
+				{
+					FenJings[i].GetComponent<MailController>().SetCurrentStage();
+				}
+				else if (FenJings[i].GetComponent<NTRController>())
+				{
+					FenJings[i].GetComponent<NTRController>().SetCurrentStage();
+				}
 				break;
 			}
 		}
@@ -97,6 +117,29 @@ public class GameController_SceneTwo : MonoBehaviour
 	
 	void Update () 
 	{
+		if (GoFinal)
+        {
+            if (BlackAppearTotalTime < BlackAppearTime)
+            {
+                BlackAppearTotalTime += Time.deltaTime;
+
+
+                if (!BlackGround.activeInHierarchy)
+                {
+                    BlackGround.SetActive(true);
+                }
+
+                Color TmpColor = BlackGround.GetComponent<SpriteRenderer>().color;
+                TmpColor.a = BlackAppearTotalTime / BlackAppearTime;
+                BlackGround.GetComponent<SpriteRenderer>().color = TmpColor;
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+            }
+            return;
+        }
+
 		if (BlackGround.activeInHierarchy)
 		{
 			if (BlackAppearTotalTime < BlackAppearTime)
@@ -108,6 +151,7 @@ public class GameController_SceneTwo : MonoBehaviour
 			}
 			else
 			{
+				BlackAppearTotalTime = 0.0f;
 				BlackGround.SetActive(false);
 			}
 		}

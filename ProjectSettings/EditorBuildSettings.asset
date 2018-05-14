@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheRoom.unity
     guid: eb646e2129ac8a943b11903d944ec577
+  - enabled: 1
+    path: Assets/Scenes/School.unity
+    guid: 82891ecef26f5a14d954827471d549e9
   m_configObjects: {}

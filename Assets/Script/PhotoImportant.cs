@@ -21,6 +21,8 @@ public class PhotoImportant : MonoBehaviour
 
     private GameObject GameMaster;
 
+    private bool GoFinal = false;
+
     public void GetCollect()
     {
         Select = true;
@@ -35,7 +37,7 @@ public class PhotoImportant : MonoBehaviour
                 len = Mathf.RoundToInt(Random.Range(0, len - 1));
                 if (Audios[len] != null)
                 {
-                     this.GetComponent<AudioSource>().clip = Audios[len];
+                    this.GetComponent<AudioSource>().clip = Audios[len];
                     this.GetComponent<AudioSource>().Play();
                 }
             }
@@ -59,7 +61,7 @@ public class PhotoImportant : MonoBehaviour
 
         SetAlpha(0.0f);
 
-        GameMaster = GameObject.Find("GameMaster");
+        GameMaster = GameObject.Find("SceneController");
     }
 
     void Update()
@@ -75,6 +77,10 @@ public class PhotoImportant : MonoBehaviour
             {
                 SelectTotalTime = 0.0f;
                 Select = false;
+                if (this.name.Equals("Mail"))
+                {
+                    GameMaster.GetComponent<GameController_SceneTwo>().GoNext();
+                }
             }
         }
         SetAlpha(this.transform.parent.GetComponent<SpriteRenderer>().material.color.a);

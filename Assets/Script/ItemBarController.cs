@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemBarController : MonoBehaviour
 {
@@ -150,7 +151,7 @@ public class ItemBarController : MonoBehaviour
         {
             if (ItemList[i].transform.Find("Item") == null)
             {
-                return false;
+                continue;
             }
             else if (ItemList[i].transform.Find("Item").GetComponent<SpriteRenderer>().sprite.name.Equals(TheName))
             {

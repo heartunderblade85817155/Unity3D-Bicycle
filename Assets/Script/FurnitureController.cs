@@ -28,13 +28,6 @@ public class FurnitureController : MonoBehaviour
 
     public AudioClip SpecialAudio;
 
-    public float BlackAppearTime = 0.5f;
-    private float BlackAppearTotalTime = 0.0f;
-    private GameObject TheBlackGround;
-
-    private bool TheFinal = false;
-    private bool NextIs2 = false;
-
 
     public void MouseDown()
     {
@@ -72,7 +65,8 @@ public class FurnitureController : MonoBehaviour
                 }
                 else
                 {
-                    Person.GetComponent<MessageController>().SetMessage(Message);
+                    if (Person)
+                        Person.GetComponent<MessageController>().SetMessage(Message);
                 }
             }
             else
@@ -89,22 +83,12 @@ public class FurnitureController : MonoBehaviour
 
                 if (ImportantName.Equals(SpecialThingName))
                 {
-                    if (!TheBlackGround.activeInHierarchy)
-                    {
-                        TheBlackGround.SetActive(true);
-                        TheFinal = true;
-                    }
-                    if (!RedBookMark.GetComponent<ItemBarController>().CheckGetTheItem("jiezhi"))
-                    {
-                        NextIs2 = false;
-                    }
-                    else
-                    {
-                        NextIs2 = true;
-                    }
+                   this.GetComponent<SceneTwoFinal>().GoNextScene();
+                   return;
                 }
             }
-            Person.GetComponent<MessageController>().SetMessage(Message);
+            if (Person)
+                Person.GetComponent<MessageController>().SetMessage(Message);
         }
     }
 
@@ -115,36 +99,10 @@ public class FurnitureController : MonoBehaviour
         RedBookMark = GameObject.Find("RedMenu");
 
         Person = GameObject.Find("Person");
-
-        TheBlackGround = GameObject.Find("BlackBG");
-        TheBlackGround.SetActive(false);
     }
 
     void Update()
     {
-        if (TheFinal)
-        {
-            if (BlackAppearTotalTime < BlackAppearTime)
-            {
-                BlackAppearTotalTime += Time.deltaTime;
-                Color TmpColor = TheBlackGround.GetComponent<SpriteRenderer>().color;
-                TmpColor.a = BlackAppearTotalTime / BlackAppearTime;
-                TheBlackGround.GetComponent<SpriteRenderer>().color = TmpColor;
-
-                if (!NextIs2)
-                    GameObject.Find("FinalText").GetComponent<TextMeshPro>().color = TmpColor;
-            }
-            else
-            {
-                if (NextIs2)
-                {
-                     SceneManager.LoadScene(2);
-                }
-                else
-                {
-                    SceneManager.LoadScene(0);
-                }
-            }
-        }
+       
     }
 }

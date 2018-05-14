@@ -13,7 +13,7 @@ public class PhotoController : MonoBehaviour
 
     private int ImportStage;
 
-    private int CurrentStage;
+    protected int CurrentStage;
 
     private Collider2D HitCollider;
 

@@ -209,7 +209,7 @@ public class FlowerController : MonoBehaviour
                     int Num = -1;
                     for (int i = 0; i < FinalPos.Count; ++i)
                     {
-                        Vector2 Tmp1 = new Vector2(HitCollider.transform.position.x, HitCollider.transform.position.y);
+                        Vector2 Tmp1 = new Vector2(HitCollider.transform.localPosition.x, HitCollider.transform.localPosition.y);
                         Vector2 Tmp2 = new Vector2(FinalPos[i].x, FinalPos[i].y);
 
                         float TmpDis = (Tmp1 - Tmp2).magnitude;
@@ -267,6 +267,7 @@ public class FlowerController : MonoBehaviour
                     ClickFlag = false;
                     DeltaHeightTotalTime = 0.0f;
                 }
+                return;
             }
 
             if (Input.GetMouseButtonDown(0) && ClickTimes < 5)

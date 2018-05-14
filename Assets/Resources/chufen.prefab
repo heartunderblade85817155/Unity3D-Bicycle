@@ -37,9 +37,11 @@ GameObject:
   - component: {fileID: 4879230208668126}
   - component: {fileID: 212944216070754592}
   - component: {fileID: 82375175428029180}
+  - component: {fileID: 114346541584011660}
+  - component: {fileID: 60611251134745778}
   m_Layer: 0
   m_Name: chufen
-  m_TagString: Untagged
+  m_TagString: furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,13 +66,67 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935872179913188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.82, y: 6.43, z: 0}
+  m_LocalPosition: {x: -11.82, y: 6.43, z: -1}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_Children:
   - {fileID: 4747002838384666}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60611251134745778
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935872179913188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1, y: 2.43}
+    newSize: {x: 2.1, y: 2.43}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.83, y: -0.895}
+      - {x: 0.84, y: -0.695}
+      - {x: 0.87, y: -0.505}
+      - {x: 0.95, y: 0.044999998}
+      - {x: 0.98999995, y: 0.285}
+      - {x: 1.01, y: 0.445}
+      - {x: 1.04, y: 0.585}
+      - {x: 1.05, y: 0.66499996}
+      - {x: 1.05, y: 0.935}
+      - {x: 1.03, y: 0.955}
+      - {x: 0.90999997, y: 0.98499995}
+      - {x: 0.53, y: 1.025}
+      - {x: 0.45999998, y: 1.0849999}
+      - {x: 0.38, y: 1.125}
+      - {x: 0.32999998, y: 1.145}
+      - {x: 0.01, y: 1.165}
+      - {x: -0.65, y: 1.2149999}
+      - {x: -1.01, y: 1.2149999}
+      - {x: -1.05, y: 1.155}
+      - {x: -1.05, y: -0.955}
+      - {x: -0.98999995, y: -0.995}
+      - {x: -0.65, y: -0.98499995}
+      - {x: -0.45999998, y: -0.98499995}
+      - {x: 0.37, y: -1.145}
+      - {x: 0.41, y: -1.165}
+      - {x: 0.55, y: -1.2149999}
+      - {x: 0.71999997, y: -1.2149999}
+      - {x: 0.75, y: -1.1949999}
+      - {x: 0.78, y: -1.095}
+      - {x: 0.78999996, y: -0.965}
 --- !u!82 &82375175428029180
 AudioSource:
   m_ObjectHideFlags: 1
@@ -166,6 +222,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114346541584011660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935872179913188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1147d8c96a96653419d6a5ccb214d5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheScale: 0.7
+  OriginScale: 0.65
+  SpecialThing: 0
+  SpecialThingName: 
+  FenJingName: FenJingChuFenDan
+  Message: 
+  NormalAudios: []
+  SpecialAudio: {fileID: 0}
 --- !u!212 &212944216070754592
 SpriteRenderer:
   m_ObjectHideFlags: 1
