@@ -3164,7 +3164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TheScale: 1.1
   OriginScale: 1
-  SpecialThing: 0
+  SpecialThing: 1
   SpecialThingName: ui_yaoshi_
   FenJingName: MedicineFenJing
   Message: 
